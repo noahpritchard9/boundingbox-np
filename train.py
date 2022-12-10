@@ -14,7 +14,8 @@ targets = []
 filenames = []
 
 for row in rows:
-    row = row.split(",")
-    (filename, startX, startY, endX, endY) = row
+    print(row)
+    # row = row.split(",")
+    (startX, startY, endX, endY, filename) = row
     imagePath = os.path.sep.join([config.IMAGES_PATH, filename])
-    image = cv2.imread(imagePath)
+    # image = cv2.imread(imagePath)
