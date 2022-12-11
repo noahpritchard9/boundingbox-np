@@ -15,7 +15,7 @@ with open(os.getcwd() + "/dataset/airplanes.csv", "w") as csv_file:
             annotationTitle = f"image_{annotationIndex}.jpg"
             coords.append(annotationTitle)
             vals = np.asarray(coords)
-            line = f"{vals[0]}, {vals[1]}, {vals[2]}, {vals[3]}, {vals[4]}\n"
+            line = f"{vals[2]},{vals[0]},{vals[3]},{vals[1]},{vals[4]}\n"
             csv_file.write(line)
 
         except:
