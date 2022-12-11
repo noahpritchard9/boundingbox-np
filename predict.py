@@ -7,6 +7,9 @@ import imutils
 import cv2
 import os
 
+# add argument parsing so we can pass in a file or directory
+# to run the model on
+# Example: python3 predict.py --input image.jpg
 ap = argparse.ArgumentParser()
 ap.add_argument(
     "-i",
@@ -14,6 +17,8 @@ ap.add_argument(
     required=True,
     help="path to input image/text file of image filenames",
 )
+
+# if filetype is text file, we need to loop through all images
 args = vars(ap.parse_args())
 
 filetype = mimetypes.guess_type(args["input"])[0]
@@ -27,9 +32,12 @@ if filetype == "text/plain":
         p = os.path.sep.join([config.IMAGES_PATH, f])
         imagePaths.append(p)
 
+# load the model from memory
 print("loading image detector...")
 model = tf.keras.models.load_model(config.MODEL_PATH)
 
+# load each image, preprocess/scale them as our model expects
+# this means they must match our training data
 for ip in imagePaths:
     image = tf.keras.preprocessing.image.load_img(ip, target_size=(224, 224))
     image = tf.keras.preprocessing.image.img_to_array(image) / 255.0
@@ -42,6 +50,10 @@ for ip in imagePaths:
     image = imutils.resize(image, width=600)
     (h, w) = image.shape[:2]
 
+    # get the predited coordinates and plot them on top of the image
+    # when this file is executed, it will open an output dialogue
+    # showing the image and the bounding box
+    # press any key to end the program
     startX = int(startX * w)
     startY = int(startY * h)
     endX = int(endX * w)
