@@ -72,7 +72,7 @@ bboxHead = tf.keras.layers.Dense(64, activation="relu")(bboxHead)
 bboxHead = tf.keras.layers.Dense(32, activation="relu")(bboxHead)
 bboxHead = tf.keras.layers.Dense(4, activation="sigmoid")(bboxHead)
 
-model = tf.keras.models.Model(inputs=vgg.input, outputs=bboxHead)  # not sure ab this
+model = tf.keras.models.Model(inputs=vgg.input, outputs=bboxHead)
 
 # Add an optimizer (Adam) to speed up our results
 opt = tf.keras.optimizers.Adam(learning_rate=config.INIT_LR)

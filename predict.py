@@ -50,7 +50,7 @@ for ip in imagePaths:
     image = imutils.resize(image, width=600)
     (h, w) = image.shape[:2]
 
-    # get the predited coordinates and plot them on top of the image
+    # get the predicted coordinates and plot them on top of the image
     # when this file is executed, it will open an output dialogue
     # showing the image and the bounding box
 
