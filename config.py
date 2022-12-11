@@ -1,5 +1,9 @@
 import os
 
+# This file allows me to easily define input and output paths
+# that I will need throughout my project.
+# Additionally, this is where I set the hyperparameters
+
 BASE_PATH = "dataset"
 IMAGES_PATH = os.path.sep.join([BASE_PATH, "images"])
 ANNOTATIONS_PATH = os.path.sep.join([BASE_PATH, "airplanes.csv"])
