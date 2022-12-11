@@ -53,7 +53,11 @@ for ip in imagePaths:
     # get the predited coordinates and plot them on top of the image
     # when this file is executed, it will open an output dialogue
     # showing the image and the bounding box
-    # press any key to end the program
+
+    # if you pass in a single file, press any key to end the program
+    # if you pass in a text file containing multiple files,
+    # pressing any key will move you to the next image
+    # until all images have been seen, then the program will end
     startX = int(startX * w)
     startY = int(startY * h)
     endX = int(endX * w)
